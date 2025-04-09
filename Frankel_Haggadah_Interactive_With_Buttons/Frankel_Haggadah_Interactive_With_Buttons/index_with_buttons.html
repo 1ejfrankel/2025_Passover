@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frankel Family Haggadah 2025 – Interactive Edition</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background: #fdf6e3;
+    }
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    iframe {
+      width: 90vw;
+      height: 80vh;
+      border: none;
+      display: block;
+    }
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+    }
+    select {
+      padding: 10px;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+    .buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      background-color: #5a3e36;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #9b7a6b;
+    }
+  </style>
+  <script>
+    let currentCardIndex = 0;
+    const totalCards = 29;
+    const cardPaths = ["01_title.html","02_welcome.html","03_ground_rules.html","04_seder_plate.html","05_kadesh.html","06_urchatz.html","07_karpas.html","08_yachatz.html","09_four_questions.html","10_four_children.html","11_second_cup.html","12_maggid_1.html","13_maggid_2.html","14_maggid_3.html","15_maggid_4.html","16_maggid_5.html","17_maggid_6.html","18_maggid_7.html","19_maggid_8.html","20_meal.html","21_korech.html","22_maror.html","23_tzafun.html","24_hallel.html","25_nirtzah.html","26_dayenu.html","27_chad_gadya.html","28_adir_hu.html","index.html"];
+    
+    function loadCard(cardIndex) {
+      document.getElementById('haggadah-frame').src = cardPaths[cardIndex];
+      currentCardIndex = cardIndex;
+      document.getElementById('card-select').selectedIndex = cardIndex;
+    }
+    
+    function nextCard() {
+      if (currentCardIndex < totalCards - 1) {
+        loadCard(currentCardIndex + 1);
+      }
+    }
+    
+    function prevCard() {
+      if (currentCardIndex > 0) {
+        loadCard(currentCardIndex - 1);
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <label for="card-select">Navigate the Haggadah:</label>
+    <select id="card-select" onchange="loadCard(this.value)">
+      <option value="01_title.html">Title</option>
+<option value="02_welcome.html">Welcome</option>
+<option value="03_ground_rules.html">Ground Rules</option>
+<option value="04_seder_plate.html">Seder Plate</option>
+<option value="05_kadesh.html">Kadesh</option>
+<option value="06_urchatz.html">Urchatz</option>
+<option value="07_karpas.html">Karpas</option>
+<option value="08_yachatz.html">Yachatz</option>
+<option value="09_four_questions.html">Four Questions</option>
+<option value="10_four_children.html">Four Children</option>
+<option value="11_second_cup.html">Second Cup</option>
+<option value="12_maggid_1.html">Maggid 1</option>
+<option value="13_maggid_2.html">Maggid 2</option>
+<option value="14_maggid_3.html">Maggid 3</option>
+<option value="15_maggid_4.html">Maggid 4</option>
+<option value="16_maggid_5.html">Maggid 5</option>
+<option value="17_maggid_6.html">Maggid 6</option>
+<option value="18_maggid_7.html">Maggid 7</option>
+<option value="19_maggid_8.html">Maggid 8</option>
+<option value="20_meal.html">Meal</option>
+<option value="21_korech.html">Korech</option>
+<option value="22_maror.html">Maror</option>
+<option value="23_tzafun.html">Tzafun</option>
+<option value="24_hallel.html">Hallel</option>
+<option value="25_nirtzah.html">Nirtzah</option>
+<option value="26_dayenu.html">Dayenu</option>
+<option value="27_chad_gadya.html">Chad Gadya</option>
+<option value="28_adir_hu.html">Adir Hu</option>
+<option value="index.html">Ex</option>
+    </select>
+  </nav>
+
+  <div id="content">
+    <iframe id="haggadah-frame" src="01_title.html"></iframe>
+    <div class="buttons">
+      <button onclick="prevCard()">Previous</button>
+      <button onclick="nextCard()">Next</button>
+    </div>
+  </div>
+</body>
+</html>
